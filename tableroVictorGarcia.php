@@ -31,25 +31,39 @@
     <table>
     <?php
     $aLetras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+    // Fila superior con letras
     echo "<tr><td></td>";
     foreach ($aLetras as $letra) {
         echo "<td>$letra</td>";
     }
-    for ($fila=0; $fila < 8 ; $fila++) {
-        echo"<tr>";
-        echo "<td>".(8-$fila)."</td>";
-        for ($colum=0; $colum < 8 ; $colum++) {
-            $casilla = $fila + $colum;
-        if ($casilla % 2 == 0) {
-            $color = "blanca";
-        }else{
-            $color = "negra";
-        }
-        echo "<td class=$color></td>";
-        };
-        echo"</tr>";
-    };
+    echo "<td></td></tr>";
 
+    //filas
+    for ($fila = 0; $fila < 8; $fila++) {
+        echo "<tr>";
+        // Número a la izquierda
+        echo "<td>" . (8 - $fila) . "</td>";
+        // Casillas
+        for ($colum = 0; $colum < 8; $colum++) {
+            $casilla = $fila + $colum;
+            if ($casilla % 2 == 0) {
+                $color = "blanca";
+            } else {
+                $color = "negra";
+            }
+            echo "<td class=$color></td>";
+        }
+        // Número a la derecha
+        echo "<td>" . (8 - $fila) . "</td>";
+        echo "</tr>";
+    }
+
+    // Fila inferior con letras
+    echo "<tr><td></td>";
+    foreach ($aLetras as $letra) {
+        echo "<td>$letra</td>";
+    }
+    echo "<td></td></tr>";
     ?>
     </table>
 </body>
